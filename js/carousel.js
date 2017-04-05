@@ -27,20 +27,23 @@
             replace: true,
             scope: {
                 images: '=',
-                slideTime: '='
+                slideTime: '=',
+                startIndex: '='
             },
             templateUrl: 'templates/carousel.html',
             link: function(scope, elem, attrs) {
                 var slideTime = scope.slideTime || 5000;
+                var currentIndex = scope.startIndex || 0;
                 var timer;
 
-                scope.currentIndex = 0;
+                scope.statuses = [];
                 scope.clickNext = clickNext;
                 scope.clickPrev = clickPrev;
 
                 activate();
 
                 function activate() {
+                    scope.statuses[currentIndex] = true;
                     startTimer();
                 }
 
@@ -57,19 +60,17 @@
                 }
 
                 function next() {
-                    scope.images[scope.currentIndex].visible = false;
-                    scope.currentIndex < scope.images.length - 1 ?
-                        scope.currentIndex++ : scope.currentIndex = 0;
-                    scope.images[scope.currentIndex].visible = true;
-
+                    scope.statuses[currentIndex] = false;
+                    currentIndex < scope.images.length - 1 ?
+                        currentIndex++ : currentIndex = 0;
+                    scope.statuses[currentIndex] = true;
                 }
 
                 function prev() {
-                    scope.images[scope.currentIndex].visible = false;
-                    scope.currentIndex > 0 ?
-                        scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
-                    scope.images[scope.currentIndex].visible = true;
-
+                    scope.statuses[currentIndex] = false;
+                    currentIndex > 0 ?
+                        currentIndex-- : currentIndex = scope.images.length - 1;
+                    scope.statuses[currentIndex] = true;
                 }
 
                 /**

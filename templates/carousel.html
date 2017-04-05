@@ -1,7 +1,7 @@
 <div class="slider">
     <div class="slide"
-         data-ng-repeat="image in images"
-         data-ng-show="image.visible">
+         data-ng-repeat="image in images track by $index"
+         data-ng-show="statuses[$index]">
         <img data-ng-src="{{ image.src }}"/>
     </div>
 
