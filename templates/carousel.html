@@ -5,13 +5,11 @@
         <img data-ng-src="{{ image.src }}"/>
     </div>
 
-    <div class="arrows">
-        <a href data-ng-click="clickPrev()">
-            <img src="img/left-arrow.png"/>
-        </a>
+    <a href class="arrow-left" data-ng-click="clickPrev()">
+        <img src="img/left-arrow.png"/>
+    </a>
 
-        <a href data-ng-click="clickNext()">
-            <img src="img/right-arrow.png"/>
-        </a>
-    </div>
+    <a href class="arrow-right" data-ng-click="clickNext()">
+        <img src="img/right-arrow.png"/>
+    </a>
 </div>
