@@ -1,7 +1,7 @@
 {
   "name": "angular-carousel",
   "description": "",
-  "main": "",
+  "main": "index.js",
   "authors": [
     "Sergii Denysiuk <sergii.denysiuk@gmail.com>"
   ],
