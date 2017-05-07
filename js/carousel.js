@@ -15,7 +15,7 @@
                 slideTime: '=',
                 startIndex: '='
             },
-            templateUrl: 'templates/carousel.html',
+            templateUrl: 'html/carousel.html',
             link: function(scope, elem, attrs) {
                 var slideTime = scope.slideTime || 5000;
                 var currentIndex = scope.startIndex || 0;
